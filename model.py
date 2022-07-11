@@ -4,9 +4,6 @@ import numpy as np
 import functools
 import utils
 
-import imageio 
-make_gif = []
-
 # Lectura del video y tasa de lectura de frames
 video = cv2.VideoCapture("Video de prueba.mp4")
 frame_rate = 7
@@ -68,11 +65,10 @@ while(video.isOpened()):
                         break
 
             cv2.imshow('Resultado',image)
-            make_gif.append(image)
             if cv2.waitKey(25) & 0xFF == ord('q'):
                 break
         else: 
             break
-imageio.mimsave('movie.gif', make_gif)
+
 video.release()
 cv2.destroyAllWindows()
